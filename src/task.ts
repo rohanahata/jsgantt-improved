@@ -413,7 +413,7 @@ export const TaskItem = function (pID, pName, pStart, pEnd, pClass, pLink, pMile
  *        If function(task): Promise<string>) - async per task template. Tooltip will show 'Loading...' if promise is not yet complete.
  *          Otherwise returned template will be handled in the same manner as in other cases.
  */
-export const createTaskInfo = function (pTask, templateStrOrFn = null) {
+export let createTaskInfo = function (pTask, templateStrOrFn = null) {
   let vTmpDiv;
   let vTaskInfoBox = document.createDocumentFragment();
   let vTaskInfo = newNode(vTaskInfoBox, 'div', null, 'gTaskInfo');
@@ -501,7 +501,7 @@ export const createTaskInfo = function (pTask, templateStrOrFn = null) {
 };
 
 
-export const AddTaskItem = function (value) {
+export let AddTaskItem = function (value) {
   let vExists = false;
   for (let i = 0; i < this.vTaskList.length; i++) {
     if (this.vTaskList[i].getID() == value.getID()) {
@@ -515,14 +515,14 @@ export const AddTaskItem = function (value) {
   }
 };
 
-export const AddTaskItemObject = function (object) {
+export let AddTaskItemObject = function (object) {
   if (!object.pGantt) {
     object.pGantt = this;
   }
   return this.AddTaskItem(TaskItemObject(object));
 }
 
-export const RemoveTaskItem = function (pID) {
+export let RemoveTaskItem = function (pID) {
   // simply mark the task for removal at this point - actually remove it next time we re-draw the chart
   for (let i = 0; i < this.vTaskList.length; i++) {
     if (this.vTaskList[i].getID() == pID) this.vTaskList[i].setToDelete(true);
@@ -531,7 +531,7 @@ export const RemoveTaskItem = function (pID) {
   this.vProcessNeeded = true;
 };
 
-export const ClearTasks = function () {
+export let ClearTasks = function () {
   this.vTaskList.map(task => this.RemoveTaskItem(task.getID()));
   this.vProcessNeeded = true;
 };

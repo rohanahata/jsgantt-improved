@@ -67,7 +67,7 @@ export const getArrayLocationByID = function (pId) {
   return -1;
 };
 
-export const CalcTaskXY = function () {
+export let CalcTaskXY = function () {
   let vID;
   let vList = this.getList();
   let vBarDiv;

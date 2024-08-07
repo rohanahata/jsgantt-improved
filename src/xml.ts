@@ -269,7 +269,7 @@ export const AddXMLTask = function (pGanttVar, pXmlDoc) {
 };
 
 
-export const getXMLProject = function () {
+export let getXMLProject = function () {
   let vProject = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
   for (let i = 0; i < this.vTaskList.length; i++) {
     vProject += this.getXMLTask(i, true);
@@ -278,7 +278,7 @@ export const getXMLProject = function () {
   return vProject;
 };
 
-export const getXMLTask = function (pID, pIdx) {
+export let getXMLTask = function (pID, pIdx) {
   let i = 0;
   let vIdx = -1;
   let vTask = '';

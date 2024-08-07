@@ -99,14 +99,14 @@ export const show = function (pID, pTop, ganttObj) {
 };
 
 
-export const mouseOver = function (pObj1, pObj2) {
+export let mouseOver = function (pObj1, pObj2) {
   if (this.getUseRowHlt()) {
     pObj1.className += ' gitemhighlight';
     pObj2.className += ' gitemhighlight';
   }
 };
 
-export const mouseOut = function (pObj1, pObj2) {
+export let mouseOut = function (pObj1, pObj2) {
   if (this.getUseRowHlt()) {
     pObj1.className = pObj1.className.replace(/(?:^|\s)gitemhighlight(?!\S)/g, '');
     pObj2.className = pObj2.className.replace(/(?:^|\s)gitemhighlight(?!\S)/g, '');
